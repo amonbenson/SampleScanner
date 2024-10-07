@@ -1,3 +1,10 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'lib')))
+
+import pytest
 import subprocess
 
 
@@ -31,9 +38,17 @@ def expected_license():
         return license.read().strip()
 
 
+@pytest.mark.skipif(
+    sys.platform == 'win32',
+    reason='./samplescanner script does not work on Windows',
+)
 def test_readme_contains_proper_command_line_output():
     assert command_line_output_in_readme() == expected_command_line_output()
 
 
+@pytest.mark.skipif(
+    sys.platform == 'win32',
+    reason='./samplescanner script does not work on Windows',
+)
 def test_readme_contains_content_of_license():
     assert license_output_in_readme() == expected_license()
