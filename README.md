@@ -6,6 +6,11 @@
 
 SampleScanner is a command-line tool to turn MIDI instruments (usually hardware) into virtual (software) instruments automatically. It's similar to [Redmatica's now-discontinued _AutoSampler_](http://www.soundonsound.com/reviews/redmatica-autosampler) software (now part of Apple's [MainStage](https://441k.com/sampling-synths-with-auto-sampler-in-mainstage-3-412deb8f900e)), but open-source and cross-platform.
 
+## Fork by Amon Benson
+
+this fork includes the following changes:
+ - Ported to Python 3
+
 ## Features
 
  - Uses native system integration (via `rtmidi` and `pyAudio`) for compatibility with all audio and MIDI devices
