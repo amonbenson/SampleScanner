@@ -66,7 +66,7 @@ def flacize_after_sampling(
                       for key, key_regions in
                       group_by_attr(group.regions, [
                           'key', 'pitch_keycenter'
-                      ]).iteritems()], [])
+                      ]).items()], [])
         new_groups.append(Group(group.attributes, output))
 
     with open(sfzfile + '.flac.sfz', 'w') as file:
@@ -77,7 +77,7 @@ def flacize_after_sampling(
             try:
                 os.unlink(path)
             except OSError as e:
-                print "Could not unlink path: %s: %s" % (path, e)
+                print("Could not unlink path: %s: %s" % (path, e))
 
 
 ANTI_CLICK_OFFSET = 3
@@ -129,7 +129,7 @@ if __name__ == "__main__":
                                               note_name(key)))
                           for key, regions in
                           tqdm(group_by_attr(group.regions,
-                                             'key').iteritems())], [])
-            print group.just_group()
+                                             'key').items())], [])
+            print(group.just_group())
             for region in output:
-                print region
+                print(region)

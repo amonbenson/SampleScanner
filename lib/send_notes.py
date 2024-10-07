@@ -244,7 +244,7 @@ def sample_program(
                 )
                 time.sleep(PORTAMENTO_PRESAMPLE_WAIT)
 
-            for attempt in xrange(0, MAX_ATTEMPTS):
+            for attempt in range(0, MAX_ATTEMPTS):
                 try:
                     region = generate_and_save_sample(
                         limit=limit,

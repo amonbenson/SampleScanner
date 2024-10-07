@@ -106,21 +106,21 @@ def process_all(aifs):
     )
     results = sorted(
         results,
-        key=lambda (dl, dr,
+        key=(lambda dl, dr,
                     pl, pr,
                     freqd,
-                    fa, fb): dl + dr + abs(freqd - 1))
+                    fa, fb: dl + dr + abs(freqd - 1)))
     with open('results.csv', 'wb') as f:
         writer = csv.writer(f)
         writer.writerows([headers])
         writer.writerows(results)
 
-    print "%d results" % len(results)
-    print tabulate(
+    print("%d results" % len(results))
+    print(tabulate(
         results,
         headers=headers,
         floatfmt='.4f'
-    )
+    ))
 
 
 def graph_ffts():
@@ -139,10 +139,10 @@ def graph_ffts():
         idx = numpy.argmax(numpy.abs(w))
         freq = freqs[idx]
         plt.plot(w)
-        print freq
-        print \
-            fundamental_frequency(normalized(list)), \
-            fundamental_frequency(normalized(left + right))
+        print(freq)
+        print(
+            fundamental_frequency(normalized(list)),
+            fundamental_frequency(normalized(left + right)))
     # plt.show()
 
 
@@ -189,11 +189,11 @@ def freq_shift():
     shifted_diffr = normalized_difference(*aligned_sublists(wavea[1],
                                                             waveb_shifted[1]))
 
-    print files
-    print 'diffs\t\t', diffl, diffr
-    print 'shifted diffs\t', shifted_diffl, shifted_diffr
-    print 'freqs', freqd
-    print 'shifted freqs', shifted_freqd
+    print(files)
+    print('diffs\t\t', diffl, diffr)
+    print('shifted diffs\t', shifted_diffl, shifted_diffr)
+    print('freqs', freqd)
+    print('shifted freqs', shifted_freqd)
 
 
 if __name__ == "__main__":

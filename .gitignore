@@ -97,3 +97,6 @@ ENV/
 
 # Various
 *.pdf
+
+# Output directory
+/output

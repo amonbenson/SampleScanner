@@ -2,6 +2,12 @@
 
 """Command-line interface for SampleScanner."""
 
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'lib')))
+
 import argparse
 from lib.utils import note_number, two_ints
 from lib.send_notes import sample_program, VELOCITIES, MAX_ATTEMPTS
