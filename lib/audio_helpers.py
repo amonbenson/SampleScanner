@@ -141,7 +141,7 @@ def fundamental_frequency(list, sampling_rate=1):
     freqs = numpy.fft.fftfreq(len(w))
 
     # Find the peak in the coefficients
-    # idx = numpy.argmax(numpy.abs(w[:len(w) / 2]))
+    # idx = numpy.argmax(numpy.abs(w[:len(w) // 2]))
     idx = numpy.argmax(numpy.abs(w))
     freq = freqs[idx]
     return abs(freq * sampling_rate)

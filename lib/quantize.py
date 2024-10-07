@@ -29,7 +29,7 @@ def quantize_pitch(regions, pitch_levels=25):
             lowestkey + (pitch_skip / 2),
             highestkey + 1 + (pitch_skip / 2),
             pitch_skip):
-        pitchmapping[key] = {
+        pitchmapping[int(key)] = {
             'lokey': key - (pitch_skip / 2),
             'pitch_keycenter': key,
             'hikey': key + (pitch_skip / 2) - (0 if evenly_divided else 1),

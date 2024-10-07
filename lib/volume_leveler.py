@@ -24,11 +24,11 @@ def peak_rms(data, window_size=480, limits=960):
     maxlimit = max([len(channel) for channel in data])
     max_so_far = 0
     for i in range(
-        max(index - limits, (window_size / 2)),
-        min(index + limits, maxlimit - (window_size / 2))
+        max(index - limits, (window_size // 2)),
+        min(index + limits, maxlimit - (window_size // 2))
     ):
         for channel in data:
-            window = channel[i - (window_size / 2):i + (window_size / 2)]
+            window = channel[i - (window_size // 2):i + (window_size // 2)]
             if len(window) == 0:
                 raise Exception("Cannot take mean of empty slice! Channel "
                                 "size %d, index %d, window size %d" % (

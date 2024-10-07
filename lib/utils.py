@@ -14,7 +14,7 @@ C0_OFFSET = 12
 def note_name(note):
     """Return a note name from the MIDI note number."""
     from_c = int(int(note) - C0_OFFSET)
-    note_name = NOTE_NAMES[(from_c % 12)]
+    note_name = NOTE_NAMES[int(from_c % 12)]
     octave_number = (from_c / 12)
     return "%s%d" % (note_name, octave_number)
 

@@ -11,12 +11,8 @@ CHUNK_SIZE = 1024
 NUM_CHANNELS = 2
 FORMAT = pyaudio.paInt16 if bit_depth == 16 else pyaudio.paInt24
 
-if not sys.platform == "win32":
-    GO_UP = "\033[F"
-    ERASE = "\033[2K"
-else:
-    GO_UP = "\n"
-    ERASE = ""
+GO_UP = "\033[F"
+ERASE = "\033[2K"
 
 
 def is_silent(snd_data, threshold):

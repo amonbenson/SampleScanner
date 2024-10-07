@@ -30,7 +30,7 @@ def window_match(file):
     winner = None
 
     window_positions = list(
-        slide_window(file, period, len(file) / 2, len(file) / 8)
+        slide_window(file, period, len(file) // 2, len(file) // 8)
     )
     for power, i, window_size in tqdm(window_positions):
         window_start = find_similar_sample_index(file, i, i + window_size)
@@ -131,7 +131,7 @@ def fast_autocorrelate(x):
     f = numpy.fft.fft(xp)
     p = numpy.absolute(numpy.power(f, 2))
     pi = numpy.fft.ifft(p)
-    result = numpy.real(pi)[:x.size / 2] / numpy.sum(numpy.power(xp, 2))
+    result = numpy.real(pi)[:x.size // 2] / numpy.sum(numpy.power(xp, 2))
     return result
 
 
